@@ -1,0 +1,1 @@
+{f1 0 8193 10 1f3 0 8193 7 0 4096 1 4097 0i3 0 10}f 0 20p1 range 1 1accum on init 1p2 const .1p3 mask 2 2prec 0accum wrap 0 10 init 3p4 rnd beta .1  .1mask -5 5prec 0accum limit -20 20p5 rnd beta .1  .1mask -5 5prec 0accum mirror -20 20p6rnd beta .1  .1mask -6 6prec 0accum limit (10 -20 20 0) (10 20 20 2)

@@ -1,0 +1,1 @@
+{f1 0 8193 10 1f3 0 8193 7 0 4096 1 4097 0i3 0 10}f 0 20p1 const 1p2 range .2 .3p3 rnd unimask 1 4prec 2p4 seg (0 0 20 10)prec 0p5 seg (0 0 20 10)prec 3p6 seg (0 0 20 10 ipl 2.2)prec 3p7 seg (0 0 10 10 ipl off)prec 3

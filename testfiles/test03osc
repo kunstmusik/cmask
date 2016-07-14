@@ -1,0 +1,1 @@
+{f1 0 8193 10 1f3 0 8193 7 0 4096 1 4097 0i3 0 10}f 0 20p1 const 1p2 range .01 .1prec 2p3 osc powdown .2 0 -1mask -10 10prec 2p4 osc sin 1mask 0 10prec 2p5osc cos 1mask 0 10p6osc sawup 1mask 0 10p7 osc sawdown 1mask 0 10p8 osc square 1mask 0 10p9 osc tri 1mask 0 10p10 osc powup 1mask 0 10p11 osc powdown 1mask 0 10

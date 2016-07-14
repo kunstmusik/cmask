@@ -1,0 +1,1 @@
+{f1 0 8193 10 1 .5 .3 .25 .2 .14 .11 .1f2 0 8193 5 .01 193 1 8000 .01}f 0 20p1 const 1p2 range .001 .01accum mirror .005 .1p3 range -.1 .1accum mirror .005 .1 init .03p4 rnd triangmask -100 100prec 2accum limit 200 2000 init 500
