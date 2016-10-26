@@ -70,7 +70,7 @@ public:
 	
 class text {
 	infile		filein;
-	char		filename[33];
+	char		filename[MAX_FILENAME];
 	long		n;					
 public:
 	char		*theText;			// Buffer für text
@@ -93,7 +93,7 @@ class scanner {
 	char 		*dummy;
 
 	outfile		fileout;
-	char		filename[33];
+	char		filename[MAX_FILENAME];
 	long		nt,n;
 	
 	void		analyzefield(long);

@@ -21,17 +21,17 @@
 #include "utils.h"
 #include "fileio.h"
 #include "parser.h"
- 
-	
-main(int argc, char *argv[])
+
+
+int main(int argc, char *argv[])
 {	 
 	scanner s;
 	int	i;
 	char	*inname, *outname;
 
 
-	inname = new char [32];
-	outname = new char [32];
+	inname = new char [MAX_FILENAME];
+	outname = new char [MAX_FILENAME];
 
 	if (!inname || !outname) error(MEMORY,"file name string");
 

@@ -142,9 +142,9 @@ void outfile::setname(char *str) { strcpy(filename,str);}
 void outfile::create(char *str)
 	{
 	int i,k;
-	char *dummy1, dummy2[32];
+	char *dummy1, dummy2[MAX_FILENAME];
 
-	for (i=0; i<32; dummy2[i]='\0', i++);
+	for (i=0; i<MAX_FILENAME; dummy2[i]='\0', i++);
 	setname(str);
 
 //	cout << "Score file: " << filename << endl;	
@@ -226,4 +226,3 @@ void outfile::write(char *str)
 	}
 	
 // outfile - functions ----------------------------------------
-	

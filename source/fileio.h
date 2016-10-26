@@ -13,7 +13,7 @@ class infile {
 #endif	
 
 	FILE		*fp;
-	char		filename[33];
+	char		filename[MAX_FILENAME];
 	OSErr		err;
 	long		countBytes;			// Gesamtzahl Bytes beim Laden, Bytes für Speichern
 	
@@ -36,7 +36,7 @@ class outfile {
 #endif	
 
 	FILE		*fp;
-	char		filename[33];
+	char		filename[MAX_FILENAME];
 	OSErr		err;
 	long		countBytes;			// Gesamtzahl Bytes beim Laden, Bytes für Speichern
 	
