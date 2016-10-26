@@ -249,6 +249,7 @@ void funlist(tokliste *tk, long s, long n, double *xa, double *ya, double *ip, l
 		else {
 			*im = 1;
 			//tk->nth(to,s+n-1);
+			errno = 0;
 			*ip = strtod(to,&dum);
 			if(errno) error (SYNTAX,"invalid interpolation exponent in list");
 			}
@@ -256,9 +257,11 @@ void funlist(tokliste *tk, long s, long n, double *xa, double *ya, double *ip, l
 	for(i=0; i<ni; i += 2)
 		{
 		tk->nth(to,s+i);
+		errno = 0;
 		xa[i/2] = strtod(to,&dum);
 		if(errno) error (SYNTAX,"invalid time in list");
 		tk->nth(to,s+i+1);
+		errno = 0;
 		ya[i/2] = strtod(to,&dum);
 		if(errno) error (SYNTAX,"invalid value in list");
 		}
@@ -299,6 +302,7 @@ void pairlist(tokliste *tk, long s, long n, double beg, double end,double *xa, d
 			}
 		else {
 			*im = 1;
+			errno = 0;
 			*ip = strtod(to,&dum);
 			if(errno) error (SYNTAX,"invalid interpolation exponent in list");
 			}
@@ -306,9 +310,11 @@ void pairlist(tokliste *tk, long s, long n, double beg, double end,double *xa, d
 	xa[0] = beg;
 	xa[1] = end;
 	tk->nth(to,s);
+	errno = 0;
 	ya[0] = strtod(to,&dum);
 	if(errno) error (SYNTAX,"invalid value in list");
 	tk->nth(to,s+1);
+	errno = 0;
 	ya[1] = strtod(to,&dum);
 	if(errno) error (SYNTAX,"invalid value in list");
 	}	
@@ -324,6 +330,7 @@ void itmlist(tokliste *tk, long s, long n, double *xa)
 	for(i=0; i<ni; i++)
 		{
 		tk->nth(to,s+i);
+		errno = 0;
 		xa[i] = strtod(to,&dum);
 		if(errno) error (SYNTAX,"invalid value in item list");
 		}
@@ -691,13 +698,14 @@ void scanner::analyzefield(long fn)
 	long npar;
 
 //	f.clear();
-	errno=0;
 	 								
 	token.nth(tok,++n);				// beginn
+	errno = 0;
 	beginn = strtod(tok,&dummy);
 	if((beginn < 0.0) || errno)  error (SYNTAX,"invalid number for begin");	
 									
 	token.nth(tok,++n);				// ende
+	errno = 0;
 	ende = strtod(tok,&dummy);
 	if(!ende || (ende < beginn))  error (SYNTAX,"invalid number for end");	
 	cout << "Duration from " << beginn << " to " << ende << '\n';
@@ -737,6 +745,7 @@ void scanner::analyzeparam(paramliste& p)
 			{
 			case xconst :	// pfield mit Konstante-Makro
 				token.nth(tok,++n);
+				errno = 0;
 				x = strtod(tok,&dummy);
 				if(errno) error (SYNTAX,"no constant value");
 				p.p[pnum].setconst(x);
@@ -744,9 +753,11 @@ void scanner::analyzeparam(paramliste& p)
 				break;
 			case xrang	:	// pfield mit Range-Makro
 				token.nth(tok,++n);
+				errno = 0;
 				x = strtod(tok,&dummy);
 				if(errno) error (SYNTAX,"no lower range value");
 				token.nth(tok,++n);
+				errno = 0;
 				y1 = strtod(tok,&dummy);
 				if(errno) error (SYNTAX,"no upper range value");
 				p.p[pnum].setrange(x,y1);
@@ -801,6 +812,7 @@ void scanner::analyzeparam(paramliste& p)
 
 			case xprec	:	// precision
 				token.nth(tok,++n);
+				errno = 0;
 				k = atoi(tok);
 				if(errno || (k < 0)) error (SYNTAX,"invalid precision");	
 				p.p[pnum].setprec(k);
@@ -839,6 +851,7 @@ void scanner::analyzeparam(paramliste& p)
 				token.nth(tok,++n);
 				if(myisnumber(tok))
 					{
+					errno = 0;
 					 x = strtod(tok,&dummy);
 					if(errno) error (SYNTAX,"invalid value for control A");
 					p.p[pnum].pgen.setval(1,x);
@@ -877,6 +890,7 @@ void scanner::analyzeparam(paramliste& p)
 					token.nth(tok,++n);
 					if(myisnumber(tok))
 						{
+						errno = 0;
 						x = strtod(tok,&dummy);
 						if(errno) error (SYNTAX,"invalid value for control A");
 						p.p[pnum].pgen.setval(2,x);
@@ -924,6 +938,7 @@ void scanner::analyzeparam(paramliste& p)
 				token.nth(tok,++n);
 				if(myisnumber(tok))
 					{
+					errno = 0;
 					 x = strtod(tok,&dummy);
 					if(errno) error (SYNTAX,"invalid frequency value");
 					p.p[pnum].pgen.setval(1,x);
@@ -960,6 +975,7 @@ void scanner::analyzeparam(paramliste& p)
 				token.nth(tok,++n);
 				if(myisnumber(tok))
 					{
+					errno = 0;
 					x = strtod(tok,&dummy);
 					if(errno) error (SYNTAX,"invalid phase value");
 					p.p[pnum].pgen.setval(2,x);
@@ -969,6 +985,7 @@ void scanner::analyzeparam(paramliste& p)
 				token.nth(tok,++n);
 				if(myisnumber(tok))
 					{
+					errno = 0;
 					x = strtod(tok,&dummy);
 					if(errno) error (SYNTAX,"invalid exponent value");
 					p.p[pnum].pgen.setval(3,x);
@@ -983,6 +1000,7 @@ void scanner::analyzeparam(paramliste& p)
 				token.nth(tok,++n);
 				if(myisnumber(tok))
 					{
+					errno = 0;
 					 x = strtod(tok,&dummy);
 					if(errno) error (SYNTAX,"invalid value for lower mask boundary");
 					p.p[pnum].pmask.setval(1,x);
@@ -1019,6 +1037,7 @@ void scanner::analyzeparam(paramliste& p)
 				token.nth(tok,++n);
 				if(myisnumber(tok))
 					{
+					errno = 0;
 					x = strtod(tok,&dummy);
 					if(errno) error (SYNTAX,"invalid value for higher mask boundary");
 					p.p[pnum].pmask.setval(2,x);
@@ -1056,6 +1075,7 @@ void scanner::analyzeparam(paramliste& p)
 				if(xsymbol(tok) == xmap)
 					{
 					token.nth(tok,++n);			
+					errno = 0;
 					map = strtod(tok,&dummy);
 					if(errno) error (SYNTAX,"no mapping exponent");
 					p.p[pnum].pmask.setmap(map);	
@@ -1070,6 +1090,7 @@ void scanner::analyzeparam(paramliste& p)
 				token.nth(tok,++n);
 				if(myisnumber(tok))
 					{
+					errno = 0;
 					 x = strtod(tok,&dummy);
 					if(errno) error (SYNTAX,"invalid quantization interval");
 					p.p[pnum].pquant.setval(1,x);
@@ -1114,6 +1135,7 @@ void scanner::analyzeparam(paramliste& p)
 					token.nth(tok,++n);
 					if(myisnumber(tok))
 						{
+						errno = 0;
 						 x = strtod(tok,&dummy);
 						if(errno) error (SYNTAX,"invalid quantization strength");
 						p.p[pnum].pquant.setval(3,x);
@@ -1160,6 +1182,7 @@ void scanner::analyzeparam(paramliste& p)
 					token.nth(tok,++n);
 					if(myisnumber(tok))
 						{
+						errno = 0;
 						x = strtod(tok,&dummy);
 						if(errno) error (SYNTAX,"invalid quantization offset");
 						p.p[pnum].pquant.setval(2,x);
@@ -1230,6 +1253,7 @@ void scanner::analyzeparam(paramliste& p)
 							token.nth(tok,++n);
 							if(myisnumber(tok))
 								{
+								errno = 0;
 								 x = strtod(tok,&dummy);
 								if(errno) error (SYNTAX,"invalid value for lower accum boundary");
 								p.p[pnum].paccum.setval(1,x);
@@ -1266,6 +1290,7 @@ void scanner::analyzeparam(paramliste& p)
 							token.nth(tok,++n);
 							if(myisnumber(tok))
 								{
+								errno = 0;
 								x = strtod(tok,&dummy);
 								if(errno) error (SYNTAX,"invalid value for higher accum boundary");
 								p.p[pnum].paccum.setval(2,x);
@@ -1305,6 +1330,7 @@ void scanner::analyzeparam(paramliste& p)
 							if(xsymbol(tok) == xbinit)
 								{
 								token.nth(tok,++n);	
+								errno = 0;
 								x = strtod(tok,&dummy);
 								if ((pnum == 2) && (x != 0.0)) error (SYNTAX,"for p2: only init value 0 allowed!");		
 								if(errno) error (SYNTAX,"no accum init value");
