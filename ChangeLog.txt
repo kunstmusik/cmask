@@ -1,0 +1,79 @@
+=============================
+ChangeLog for CMask on GitHub
+=============================
+
+To recompile:
+	cd to the source/ directory.
+	make
+
+
+2016-10-26  Anthony Kozar  <akozar@users.sourceforge.net>
+
+	New files:
+		.gitignore
+		ChangeLog.txt
+		Issues.txt
+		testfiles/run-tests.sh
+
+2016-07-14  Steven Yi
+
+	Updated to compile with newer C++ compilers:
+		1. "#include <iostream.h>" has been updated to "#include <iostream>"
+		2. "using namespace std;" has been added to globals.h
+		3. D_IRIX is defined for the build in globals.h, making the build 
+		   suitable for Linux.  Users compiling cmask for other platforms will
+		   have to change what platform is defined in globals.h. 
+
+------------------------------------------------------------
+The changes below were committed to GitHub on 2016-10-26:
+
+2013-06-13  Anthony Kozar  <akozar@users.sourceforge.net>
+
+	mask.cpp:
+	mask.h:
+	parser.cpp:
+	parser.h:
+	utils.cpp:
+	utils.h:
+		Changed some params & vars to eliminate warnings about string constants.
+
+	cmask.cpp:
+		Added output messages labeling this as a modified version and including
+		the date of compilation.
+
+2013-06-12  Anthony Kozar  <akozar@users.sourceforge.net>
+
+	*.cpp:
+		Change header style to match standard C++ (#include <stdio.h> to 
+		<cstdio>, etc.) and include "globals.h" after standard headers instead
+		of before.
+		
+	parser.cpp:
+		Set errno = 0 before calling strtod() to avoid incorrectly reporting
+		errors on recent OS X systems.
+
+	windows-crosscc.make:
+		Copy of makefile with changes so that I can compile a Windows .exe on
+		Mac OS X.
+
+2009-04-19  Anthony Kozar  <akozar@users.sourceforge.net>
+
+	globals.h:  New macro MAX_FILENAME; set to 2048.
+
+	cmask.cpp:
+	parser.h:
+	fileio.h:
+	fileio.cpp:  Most filename char[] variables were only 32 or 33
+		bytes long which was easy to overflow and crash.  Replaced
+		explicit sizes with MAX_FILENAME macro.
+
+2007-03-15  Anthony Kozar  <akozar@users.sourceforge.net>
+
+  I had to make a couple small changes to make this compile on MacOS X:
+
+	globals.h:  comment out #define D_MAC and uncomment #define D_IRIX.
+
+	parser.h/cpp:  rename "isnumber" function to "myisnumber" due to a 
+		conflict with the OS X ctype.h header.
+
+------------------------------------------------------------
