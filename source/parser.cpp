@@ -23,7 +23,7 @@
 #include "parser.h"
 
 
-int	isnumber(char *s)
+int	myisnumber(char *s)
 	{
 	long i,n;
 	int	erg;
@@ -757,7 +757,7 @@ void scanner::analyzeparam(paramliste& p)
 				
 			case xseg	:	// pfield mit Segment-Makro
 				token.nth(tok,++n);
-				if(isnumber(tok))
+				if(myisnumber(tok))
 					error (SYNTAX,"only list allowed for segment");
 				else if(ispairon(tok))
 					{
@@ -837,7 +837,7 @@ void scanner::analyzeparam(paramliste& p)
 				p.p[pnum].setflag(GEN);
 				// erster Wert optional
 				token.nth(tok,++n);
-				if(isnumber(tok))
+				if(myisnumber(tok))
 					{
 					 x = strtod(tok,&dummy);
 					if(errno) error (SYNTAX,"invalid value for control A");
@@ -875,7 +875,7 @@ void scanner::analyzeparam(paramliste& p)
 				if(n<nt)
 					{
 					token.nth(tok,++n);
-					if(isnumber(tok))
+					if(myisnumber(tok))
 						{
 						x = strtod(tok,&dummy);
 						if(errno) error (SYNTAX,"invalid value for control A");
@@ -922,7 +922,7 @@ void scanner::analyzeparam(paramliste& p)
 				p.p[pnum].setflag(GEN);
 				// erster Wert optional
 				token.nth(tok,++n);
-				if(isnumber(tok))
+				if(myisnumber(tok))
 					{
 					 x = strtod(tok,&dummy);
 					if(errno) error (SYNTAX,"invalid frequency value");
@@ -958,7 +958,7 @@ void scanner::analyzeparam(paramliste& p)
 				else break;
 				// zweiter Wert optional
 				token.nth(tok,++n);
-				if(isnumber(tok))
+				if(myisnumber(tok))
 					{
 					x = strtod(tok,&dummy);
 					if(errno) error (SYNTAX,"invalid phase value");
@@ -967,7 +967,7 @@ void scanner::analyzeparam(paramliste& p)
 				else break;	
 				// dritter Wert optional
 				token.nth(tok,++n);
-				if(isnumber(tok))
+				if(myisnumber(tok))
 					{
 					x = strtod(tok,&dummy);
 					if(errno) error (SYNTAX,"invalid exponent value");
@@ -981,7 +981,7 @@ void scanner::analyzeparam(paramliste& p)
 				p.p[pnum].setflag(MASK);
 				p.p[pnum].setflag(GEN);
 				token.nth(tok,++n);
-				if(isnumber(tok))
+				if(myisnumber(tok))
 					{
 					 x = strtod(tok,&dummy);
 					if(errno) error (SYNTAX,"invalid value for lower mask boundary");
@@ -1017,7 +1017,7 @@ void scanner::analyzeparam(paramliste& p)
 				else error (SYNTAX,"invalid value for lower mask boundary");
 				// zweiter Wert obligatorisch
 				token.nth(tok,++n);
-				if(isnumber(tok))
+				if(myisnumber(tok))
 					{
 					x = strtod(tok,&dummy);
 					if(errno) error (SYNTAX,"invalid value for higher mask boundary");
@@ -1068,7 +1068,7 @@ void scanner::analyzeparam(paramliste& p)
 				// erster Wert
 				p.p[pnum].setflag(QUANT);
 				token.nth(tok,++n);
-				if(isnumber(tok))
+				if(myisnumber(tok))
 					{
 					 x = strtod(tok,&dummy);
 					if(errno) error (SYNTAX,"invalid quantization interval");
@@ -1112,7 +1112,7 @@ void scanner::analyzeparam(paramliste& p)
 				if(n<nt)
 					{
 					token.nth(tok,++n);
-					if(isnumber(tok))
+					if(myisnumber(tok))
 						{
 						 x = strtod(tok,&dummy);
 						if(errno) error (SYNTAX,"invalid quantization strength");
@@ -1158,7 +1158,7 @@ void scanner::analyzeparam(paramliste& p)
 				if(n<nt)
 					{
 					token.nth(tok,++n);
-					if(isnumber(tok))
+					if(myisnumber(tok))
 						{
 						x = strtod(tok,&dummy);
 						if(errno) error (SYNTAX,"invalid quantization offset");
@@ -1228,7 +1228,7 @@ void scanner::analyzeparam(paramliste& p)
 					case bwrap		:
 					case blimit		:
 							token.nth(tok,++n);
-							if(isnumber(tok))
+							if(myisnumber(tok))
 								{
 								 x = strtod(tok,&dummy);
 								if(errno) error (SYNTAX,"invalid value for lower accum boundary");
@@ -1264,7 +1264,7 @@ void scanner::analyzeparam(paramliste& p)
 							else error (SYNTAX,"invalid value for lower accum boundary");
 							// zweiter Wert obligatorisch
 							token.nth(tok,++n);
-							if(isnumber(tok))
+							if(myisnumber(tok))
 								{
 								x = strtod(tok,&dummy);
 								if(errno) error (SYNTAX,"invalid value for higher accum boundary");

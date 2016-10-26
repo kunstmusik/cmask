@@ -20,7 +20,7 @@ enum   {xnull, xfield, xpar, xrnd,
 		xprec, xoff,xcos, xnum }; // xsymbols; 
 
 
-int isnumber(char *s);
+int myisnumber(char *s);
 int ispfield(char *s);
 int issymbol(char *s);
 int	isliston(char *s);
