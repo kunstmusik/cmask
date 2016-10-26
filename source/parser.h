@@ -44,8 +44,8 @@ class liste {
 public:
 			liste();
 			~liste();		
-	void	append(char *str);
-	void	prepend(char *str);
+	void	append(const char *str);
+	void	prepend(const char *str);
 	void	cuthead(void);
 	void	cuttail(void);
 	void	clear(void);

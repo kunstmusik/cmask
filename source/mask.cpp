@@ -137,7 +137,7 @@ void accum::clear()
 	}	
 
 
-int accum::setbmode(char *s) 
+int accum::setbmode(const char *s) 
 	{
 	int eflag;
 	

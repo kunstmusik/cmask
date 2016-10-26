@@ -99,7 +99,7 @@ int	issymbol(char *s)
 int	xsymbol(char *s)
 	{
 	int erg,num;
-	char *dummy="";
+	char *dummy = NULL;
 	
 	erg = -1;
 	switch (tolower(s[0]))
@@ -224,7 +224,7 @@ int lenlist(tokliste *tk, long s, int *ifl)
 void funlist(tokliste *tk, long s, long n, double *xa, double *ya, double *ip, long *im)
 	{
 	long i, ni;
-	char *dum = "";
+	char *dum = NULL;
 	char to[16];
 
 	*ip = 0.0;
@@ -284,7 +284,7 @@ int lenpairlist(tokliste *tk, long s, int *ifl)
 
 void pairlist(tokliste *tk, long s, long n, double beg, double end,double *xa, double *ya, double *ip, long *im)
 	{
-	char *dum = "";
+	char *dum = NULL;
 	char to[16];
 
 	*ip = 0.0;
@@ -317,7 +317,7 @@ void pairlist(tokliste *tk, long s, long n, double beg, double end,double *xa, d
 void itmlist(tokliste *tk, long s, long n, double *xa)
 	{
 	long i, ni;
-	char *dum = "";
+	char *dum = NULL;
 	char to[16];
 
 	ni = n;
@@ -361,7 +361,7 @@ void liste::clear(void)
 	n = 0;	
 	}		
 
-void liste::append(char *str)	//fŸge vor end ein
+void liste::append(const char *str)	//fŸge vor end ein
 	{
 	if (strlen(str) > 16)  error(STRING, str);
 	actual = end;
@@ -373,7 +373,7 @@ void liste::append(char *str)	//fŸge vor end ein
 	n++;
 	}
 	
-void liste::prepend(char *str)	//fŸge vor start ein
+void liste::prepend(const char *str)	//fŸge vor start ein
 	{
 	if (strlen(str) > 16)  error(STRING, str);
 	actual = new knoten;
@@ -453,7 +453,7 @@ void tokliste::findnext(void)
 	{
 	char *in,dummy[16];
 	long ln;
-	char *delims = " ,;\n\t\r\f" ;
+	const char *delims = " ,;\n\t\r\f" ;
 
 	in = t + strspn(t,delims);	// erster Nichttrenner
 	if(in > (t+tn)) return;

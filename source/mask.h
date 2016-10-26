@@ -39,7 +39,7 @@ public:
 				accum(void);				 
 				//~accum(void); 
 	void		clear();
-	int		setbmode(char *s);				//Bound-Modus setzen
+	int		setbmode(const char *s);				//Bound-Modus setzen
 	void		initakku(double a=0.0);				//StartWert setzen
 	double	getval(double, double, double*, double*);				//Zufallswert lesen
 	};

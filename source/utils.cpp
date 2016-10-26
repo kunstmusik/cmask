@@ -27,10 +27,8 @@ double frand(void)						// Floating point version of rand() { 0 ... 1}
 	}
 
 
-void error(long tx, char* s, int n)
+void error(long tx, const char* s, int n)
 	{
-	char *c="";
-	
 	switch (tx)
 		{
 		case SYNTAX: 	cerr << "\n---------> Syntaxerror: " << s << '\n';
