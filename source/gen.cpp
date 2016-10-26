@@ -1,14 +1,13 @@
 //                        generator functions
 
-#include "globals.h"
-
-
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
 #include <iostream>
-#include <string.h>
-#include <math.h>
-#include <time.h>
+#include <cstring>
+#include <cmath>
+#include <ctime>
+
+#include "globals.h"
 #include "gen.h"
 #include "utils.h"
 

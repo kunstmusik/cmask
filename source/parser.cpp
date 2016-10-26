@@ -1,13 +1,14 @@
 // Laden Ÿber Standard dialog
-#include "globals.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include <string.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cmath>
+#include <cstring>
 #include <iostream>
-#include <ctype.h>
-#include <errno.h>
+#include <cctype>
+#include <cerrno>
+
+#include "globals.h"
 
 #if defined D_MAC
 	#include <console.h>

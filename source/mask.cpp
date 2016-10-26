@@ -1,11 +1,11 @@
-#include "globals.h"
-
 #include <iostream>
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <math.h>
-#include <errno.h>
+#include <cstdlib>
+#include <cstdio>
+#include <cstring>
+#include <cmath>
+#include <cerrno>
+
+#include "globals.h"
 #include "utils.h"
 #include "mask.h"
 

@@ -1,14 +1,13 @@
 //							Utility-Functions
 
-#include "globals.h"
-
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
 #include <iostream>
-#include <math.h>
-#include <string.h>
-#include <time.h>
+#include <cmath>
+#include <cstring>
+#include <ctime>
 
+#include "globals.h"
 #include "utils.h"
 
 

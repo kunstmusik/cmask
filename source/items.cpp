@@ -1,11 +1,11 @@
-#include "globals.h"
-
 #include <iostream>
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
-#include <string.h>
-#include <errno.h>
+#include <cstdlib>
+#include <cstdio>
+#include <cmath>
+#include <cstring>
+#include <cerrno>
+
+#include "globals.h"
 #include "utils.h"
 #include "items.h"
 
