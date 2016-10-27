@@ -1,14 +1,13 @@
 //							Utility-Functions
 
-#include "globals.h"
-
-#include <stdio.h>
-#include <stdlib.h>
+#include <cstdio>
+#include <cstdlib>
 #include <iostream>
-#include <math.h>
-#include <string.h>
-#include <time.h>
+#include <cmath>
+#include <cstring>
+#include <ctime>
 
+#include "globals.h"
 #include "utils.h"
 
 
@@ -28,10 +27,8 @@ double frand(void)						// Floating point version of rand() { 0 ... 1}
 	}
 
 
-void error(long tx, char* s, int n)
+void error(long tx, const char* s, int n)
 	{
-	char *c="";
-	
 	switch (tx)
 		{
 		case SYNTAX: 	cerr << "\n---------> Syntaxerror: " << s << '\n';

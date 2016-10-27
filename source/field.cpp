@@ -1,10 +1,10 @@
-#include "globals.h"
-
 #include <iostream>
-#include <stdlib.h>
-#include <stdio.h>
-#include <math.h>
-#include <errno.h>
+#include <cstdlib>
+#include <cstdio>
+#include <cmath>
+#include <cerrno>
+
+#include "globals.h"
 #include "utils.h"
 #include "field.h"
 #include "mask.h"

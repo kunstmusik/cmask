@@ -3,14 +3,13 @@
 
 //MSLHeaders.x86
 
-#include "globals.h" 
-
- 
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include <string.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cmath>
+#include <cstring>
 #include <iostream>
+
+#include "globals.h" 
 
 #if defined D_MAC
 	#include <console.h>
@@ -22,17 +21,17 @@
 #include "utils.h"
 #include "fileio.h"
 #include "parser.h"
- 
-	
-main(int argc, char *argv[])
+
+
+int main(int argc, char *argv[])
 {	 
 	scanner s;
 	int	i;
 	char	*inname, *outname;
 
 
-	inname = new char [32];
-	outname = new char [32];
+	inname = new char [MAX_FILENAME];
+	outname = new char [MAX_FILENAME];
 
 	if (!inname || !outname) error(MEMORY,"file name string");
 
@@ -46,7 +45,9 @@ main(int argc, char *argv[])
 	//SIOUXSettings.setupmenus = FALSE;	
 #endif
 
-	cout << "-------- CMask 0.31 --------\n" << endl;
+	cout << "-------- CMask 0.31 --------" << endl;
+	cout << "----- Modified Version -----" << endl;
+	cout << "-------- " __DATE__ " -------\n" << endl;
 	
 #if defined D_MAC
 	cout << "Choose parameter file ..." << endl;
@@ -85,9 +86,5 @@ main(int argc, char *argv[])
 	
 	delete inname;
 	delete outname;
-	return 0 ;
-	}
-
-
-
-
+	return 0;
+}

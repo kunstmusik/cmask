@@ -9,6 +9,8 @@
 //#define D_DOS
 //#define D_WIN
 
+#define MAX_FILENAME  2048
+
 #if defined D_IRIX
 	
 	typedef char** 	Handle;

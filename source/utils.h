@@ -19,7 +19,7 @@
 
 void frandinit(void);
 double	frand(void);
-void error(long, char* s, int n=0 );
+void error(long, const char* s, int n=0 );
 double round(double val, long dec);
 double modul(double x, double u, double o);
 double mirror(double x, double u, double o);

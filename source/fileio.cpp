@@ -1,10 +1,12 @@
 // Laden Ÿber Standard dialog
-#include <stdio.h>
-#include <stdlib.h>
-#include <math.h>
-#include <string.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cmath>
+#include <cstring>
 #include <iostream>
-#include <errno.h>
+#include <cerrno>
+
+#include "globals.h"
 
 #if defined D_MAC
 	#include <console.h>
@@ -140,9 +142,9 @@ void outfile::setname(char *str) { strcpy(filename,str);}
 void outfile::create(char *str)
 	{
 	int i,k;
-	char *dummy1, dummy2[32];
+	char *dummy1, dummy2[MAX_FILENAME];
 
-	for (i=0; i<32; dummy2[i]='\0', i++);
+	for (i=0; i<MAX_FILENAME; dummy2[i]='\0', i++);
 	setname(str);
 
 //	cout << "Score file: " << filename << endl;	
@@ -224,4 +226,3 @@ void outfile::write(char *str)
 	}
 	
 // outfile - functions ----------------------------------------
-	

@@ -1,0 +1,20 @@
+CMask issues
+============
+
+both
+----
+
+- incorrectly checks for a failed conversion after calling strtod()
+- scanner.dummy is never initialized ?
+
+
+Mac GUI
+-------
+
+- does not close the output file if score gen fails, so can't open again ?
+
+
+commandline
+-----------
+
+- writes to ".sco" if no output filename is specified

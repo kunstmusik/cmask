@@ -20,7 +20,7 @@ enum   {xnull, xfield, xpar, xrnd,
 		xprec, xoff,xcos, xnum }; // xsymbols; 
 
 
-int isnumber(char *s);
+int myisnumber(char *s);
 int ispfield(char *s);
 int issymbol(char *s);
 int	isliston(char *s);
@@ -44,8 +44,8 @@ class liste {
 public:
 			liste();
 			~liste();		
-	void	append(char *str);
-	void	prepend(char *str);
+	void	append(const char *str);
+	void	prepend(const char *str);
 	void	cuthead(void);
 	void	cuttail(void);
 	void	clear(void);
@@ -70,7 +70,7 @@ public:
 	
 class text {
 	infile		filein;
-	char		filename[33];
+	char		filename[MAX_FILENAME];
 	long		n;					
 public:
 	char		*theText;			// Buffer für text
@@ -93,7 +93,7 @@ class scanner {
 	char 		*dummy;
 
 	outfile		fileout;
-	char		filename[33];
+	char		filename[MAX_FILENAME];
 	long		nt,n;
 	
 	void		analyzefield(long);
